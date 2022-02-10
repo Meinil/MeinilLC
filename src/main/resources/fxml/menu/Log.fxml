@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="730.0" styleClass="main" stylesheets="@../../css/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.meinil.mc.serverlc.controller.LogController">
+   <children>
+      <TextArea id="log-text-area" fx:id="logTextArea" layoutX="49.0" layoutY="43.0" prefColumnCount="100" prefHeight="466.0" prefRowCount="100" prefWidth="710.0" wrapText="true" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Consolas" size="13.0" />
+         </font></TextArea>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="450.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="500.0">
+         <children>
+            <TextField prefHeight="32.0" prefWidth="395.0" />
+            <Button disable="true" mnemonicParsing="false" prefHeight="32.0" prefWidth="50.0" styleClass="mx-button" text="发送" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

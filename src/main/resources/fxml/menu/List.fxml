@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane stylesheets="@../../css/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.meinil.mc.serverlc.controller.ListController">
+   <children>
+      <ListView fx:id="contentListView" prefHeight="550.0" prefWidth="730.0">
+         <padding>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </padding>
+      </ListView>
+   </children>
+   <styleClass>
+      <String fx:value="main" />
+      <String fx:value="men-list" />
+   </styleClass>
+</AnchorPane>
