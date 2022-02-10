@@ -1,4 +1,4 @@
-### 基于JavaFX的我的世界启动器
+### 基于JavaFX的我的世界开服器
 
 #### 计划支持
 
@@ -16,6 +16,8 @@
 3. 核心：提供主流核心下载
 
    - [x] `Spigot`
+   - [x] `Bukkit`
+   - [x] `Vanilla`
    - [ ] `PaperSpigot`
    - [ ] `Forge`
    - [ ] `Fabric`

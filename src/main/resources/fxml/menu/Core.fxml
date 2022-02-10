@@ -1,71 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-
 
 <AnchorPane prefHeight="550.0" prefWidth="730.0" styleClass="core" stylesheets="@../../css/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.meinil.mc.serverlc.controller.CoreController">
    <children>
       <BorderPane prefHeight="550.0" prefWidth="730.0" styleClass="core-content">
          <top>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="730.0" spacing="10.0" styleClass="core-btn-content" BorderPane.alignment="CENTER">
-               <children>
-                  <ToggleButton fx:id="spigotRadio" accessibleText="spigot" mnemonicParsing="false" selected="true" text=" Spigot">
-                     <graphic>
-                        <Region prefHeight="200.0" prefWidth="200.0" />
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="icon-btn" />
-                        <String fx:value="core-btn" />
-                     </styleClass>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="coreGroup" />
-                     </toggleGroup>
-                  </ToggleButton>
-                  <ToggleButton accessibleText="PaperSpigot" mnemonicParsing="false" text=" PaperSpigot" toggleGroup="$coreGroup">
-                     <graphic>
-                        <Region prefHeight="200.0" prefWidth="200.0" />
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="icon-btn" />
-                        <String fx:value="core-btn" />
-                     </styleClass>
-                  </ToggleButton>
-                  <ToggleButton accessibleText="Forge" mnemonicParsing="false" text=" Forge" toggleGroup="$coreGroup">
-                     <graphic>
-                        <Region prefHeight="200.0" prefWidth="200.0" />
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="icon-btn" />
-                        <String fx:value="core-btn" />
-                     </styleClass>
-                  </ToggleButton>
-                  <ToggleButton accessibleText="Fabric" mnemonicParsing="false" text=" Fabric" toggleGroup="$coreGroup">
-                     <graphic>
-                        <Region prefHeight="200.0" prefWidth="200.0" />
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="icon-btn" />
-                        <String fx:value="core-btn" />
-                     </styleClass>
-                  </ToggleButton>
-                  <ToggleButton accessibleText="Sponge" mnemonicParsing="false" text=" Sponge" toggleGroup="$coreGroup">
-                     <graphic>
-                        <Region prefHeight="200.0" prefWidth="200.0" />
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="icon-btn" />
-                        <String fx:value="core-btn" />
-                     </styleClass>
-                  </ToggleButton>
-               </children>
-            </HBox>
+            <HBox fx:id="coreTypes" alignment="CENTER" prefHeight="60.0" prefWidth="730.0" spacing="10.0" styleClass="core-btn-content" BorderPane.alignment="CENTER" />
          </top>
          <center>
             <ScrollPane fx:id="coreInfoPane" BorderPane.alignment="CENTER" />

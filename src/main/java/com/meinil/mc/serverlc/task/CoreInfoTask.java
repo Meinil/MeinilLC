@@ -10,6 +10,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,12 +20,12 @@ import java.util.Map;
  */
 public class CoreInfoTask extends Task<VBox> {
     private ToggleButton btn;
-    private Map<String, VBox> coreInfos;
     private ScrollPane coreInfoPane;
-    public CoreInfoTask(ToggleButton btn, Map<String, VBox> coreInfos, ScrollPane coreInfoPane) {
+    private Map<String, VBox> coreInfos;
+    public CoreInfoTask(ToggleButton btn,Map<String, VBox> coreInfos, ScrollPane coreInfoPane) {
         this.btn = btn;
-        this.coreInfos = coreInfos;
         this.coreInfoPane = coreInfoPane;
+        this.coreInfos = coreInfos;
     }
 
     @Override
@@ -34,12 +35,8 @@ public class CoreInfoTask extends Task<VBox> {
         if (coreInfos.containsKey(text)) {
             parent = coreInfos.get(text);
         } else {
-            switch (text) {
-                default -> {
-                    List<Core.CoreInfo> spigot = Cache.getCoreInfo().getSpigot();
-                    parent = generateParent(spigot);
-                }
-            }
+            List<Core> cores =  Cache.getCoreInfo().get(text);
+            parent = generateParent(cores);
             coreInfos.put(text, parent);
         }
 
@@ -52,7 +49,7 @@ public class CoreInfoTask extends Task<VBox> {
         coreInfoPane.setContent(value);
     }
 
-    private VBox generateParent(List<Core.CoreInfo> cores) {
+    private VBox generateParent(List<Core> cores) {
         VBox parent = new VBox(10);
         cores.forEach(core -> {
             try {
@@ -60,7 +57,7 @@ public class CoreInfoTask extends Task<VBox> {
                 parent.getChildren().add(load.load());
                 CoreInfoController controller = load.getController();
                 controller.setData(core);
-                controller.setCoreName("spigot");
+                controller.setCoreName(btn.getAccessibleText());
             } catch (IOException e) {
                 e.printStackTrace();
             }

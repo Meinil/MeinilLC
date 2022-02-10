@@ -1,6 +1,7 @@
 package com.meinil.mc.serverlc.utils;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.meinil.mc.serverlc.model.Config;
 import com.meinil.mc.serverlc.model.Core;
 import com.meinil.mc.serverlc.model.Server;
@@ -10,6 +11,10 @@ import javafx.collections.ObservableList;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
 
 /**
  * @Author Meinil
@@ -23,7 +28,7 @@ public class Cache {
     /**
      * 核心的信息
      */
-    private static Core CORES_INFO;
+    private static Map<String, List<Core>> CORES_INFO;
     /**
      * 已下载的核心
      */
@@ -54,12 +59,15 @@ public class Cache {
             }
 
             // 初始化 CORES_INFO
-            CORES_INFO = JSON.parseObject(in2, Core.class);
+            Map<String, JSONArray> map = JSON.parseObject(in2, Map.class);
+            if (map != null) {
+                CORES_INFO = convert(map);
+            }
             if (CORES_INFO == null) {
-                String text = Request.get("https://gitee.com/dingwanli/minecraft-server-core-info/raw/master/cache/cores.json");
+                String text = Request.get("https://gitee.com/dingwanli/mine-craft-server-core-info/raw/master/cache/cores.json");
                 try (OutputStream out = new FileOutputStream(PATHS[3])){
                     out.write(text.getBytes(StandardCharsets.UTF_8));
-                    CORES_INFO = JSON.parseObject(text, Core.class);
+                    CORES_INFO = convert(JSON.parseObject(text, Map.class));
                 }
             }
 
@@ -77,7 +85,24 @@ public class Cache {
         }
     }
 
-    public static Core getCoreInfo() {
+    /**
+     * jsonArray转换
+     * @param map 待转换的map
+     * @return 转换后的map
+     */
+    private static Map<String, List<Core>> convert(Map<String, JSONArray> map) {
+        Map<String, List<Core>> listMap = new HashMap<>();
+        map.forEach(new BiConsumer<String, JSONArray>() {
+            @Override
+            public void accept(String key, JSONArray objects) {
+                List<Core> cores = objects.toJavaList(Core.class);
+                listMap.put(key, cores);
+            }
+        });
+        return listMap;
+    }
+
+    public static Map<String, List<Core>> getCoreInfo() {
         return CORES_INFO;
     }
 

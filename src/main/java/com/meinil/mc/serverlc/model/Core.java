@@ -7,43 +7,31 @@ import java.util.List;
  * @Version 1.0
  */
 public class Core {
-    private List<CoreInfo> spigot;
+    private String version;
+    private String url;
+    private String size;
 
-    public List<CoreInfo> getSpigot() {
-        return spigot;
+    public String getVersion() {
+        return version;
     }
 
-    public void setSpigot(List<CoreInfo> spigot) {
-        this.spigot = spigot;
+    public String getUrl() {
+        return url;
     }
 
-    public static class CoreInfo {
-        private String version;
-        private String url;
-        private String size;
+    public String getSize() {
+        return size;
+    }
 
-        public String getVersion() {
-            return version;
-        }
+    public void setVersion(String version) {
+        this.version = version;
+    }
 
-        public String getUrl() {
-            return url;
-        }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-        public String getSize() {
-            return size;
-        }
-
-        public void setVersion(String version) {
-            this.version = version;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
-
-        public void setSize(String size) {
-            this.size = size;
-        }
+    public void setSize(String size) {
+        this.size = size;
     }
 }
