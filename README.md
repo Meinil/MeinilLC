@@ -18,10 +18,8 @@
    - [x] `Spigot`
    - [x] `Bukkit`
    - [x] `Vanilla`
+   - [x] `Purpur`
    - [ ] `PaperSpigot`
-   - [ ] `Forge`
-   - [ ] `Fabric`
-   - [ ] `Sponge`
    - [ ] ......
 4. 设置：高级参数设置
 

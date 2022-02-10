@@ -33,6 +33,7 @@ public class CoreInfoController {
     private final static Image IMAGE_SPIGOT = new Image(CoreInfoController.class.getResource("/img/spigot.png").toExternalForm(), 50, 50, true, true, false);
     private final static Image IMAGE_BUKKIT = new Image(CoreInfoController.class.getResource("/img/bukkit.png").toExternalForm(), 0, 30, true, true, false);
     private final static Image IMAGE_VANILLA = new Image(CoreInfoController.class.getResource("/img/vanilla.png").toExternalForm(), 50, 50, true, true, false);
+    private final static Image IMAGE_PURPUR = new Image(CoreInfoController.class.getResource("/img/purpur.png").toExternalForm(), 50, 50, true, true, false);
 
     @FXML
     private Button downloadBtn;
@@ -159,6 +160,9 @@ public class CoreInfoController {
             }
             case "craftbukkit" -> {
                 iconImageView.setImage(IMAGE_BUKKIT);
+            }
+            case "purpur" -> {
+                iconImageView.setImage(IMAGE_PURPUR);
             }
             default -> {
                 iconImageView.setImage(IMAGE_VANILLA);
